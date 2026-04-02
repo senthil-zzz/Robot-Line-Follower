@@ -31,11 +31,11 @@ This project demonstrates a dual-Arduino setup communicating via the I2C protoco
 4. **Logic Processing:** The Slave receives the distance. If the distance is less than 200mm, it flags `obstacleDetected = true` and turns on its LED.
 5. **Feedback Loop:** The Master immediately requests 1 byte of data back from the Slave. The Slave replies with its `obstacleDetected` status (1 or 0). The Master then turns its own LED on or off to match the Slave.
 
-## 📂 Code Structure
+## Code Structure
 * `mastertest.ino`: Flashed to the primary Arduino. Handles the button interrupt, queries the ultrasonic sensor, and manages the I2C bus timing.
 * `slavetest.ino`: Flashed to the secondary Arduino. Runs in the background waiting for `receiveEvent` or `requestEvent` from the Master to process thresholds and control the alert LED.
 
-## 🚀 Usage Instructions
+## Usage Instructions
 1. Flash `mastertest.ino` to your first Arduino.
 2. Flash `slavetest.ino` to your second Arduino.
 3. Connect the I2C lines and ensure grounds are tied together.
